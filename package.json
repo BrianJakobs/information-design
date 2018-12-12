@@ -1,0 +1,22 @@
+{
+  "name": "id",
+  "version": "1.0.0",
+  "description": "information design project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peppe-quint-boogaard/information-design.git"
+  },
+  "author": "Peppe-Quint Boogaard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/peppe-quint-boogaard/information-design/issues"
+  },
+  "homepage": "https://github.com/peppe-quint-boogaard/information-design#readme",
+  "devDependencies": {
+    "prettier": "^1.15.3"
+  }
+}
