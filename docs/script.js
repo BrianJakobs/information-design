@@ -1,6 +1,34 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
-console.log("het werkt");
 const d3 = require("d3");
+
+// general values
+
+const margin = { top: 20, bottom: 20, right: 120, left: 120 };
+const width = 960 - margin.right - margin.left;
+const height = 500 - margin.top - margin.bottom;
+
+let i = 0;
+let duration = 750;
+let root;
+
+const tree = d3.tree().size([height, width]);
+
+const diagonal = d3
+  .linkHorizontal()
+  .x(function(d) {
+    return d.x;
+  })
+  .y(function(d) {
+    return d.y;
+  });
+
+const svg = d3
+  .select("main")
+  .append("svg")
+  .attr("width", width + margin.right + margin.left)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 },{"d3":33}],2:[function(require,module,exports){
 // https://d3js.org/d3-array/ v1.2.4 Copyright 2018 Mike Bostock

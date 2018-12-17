@@ -2,26 +2,26 @@
   "name": "id",
   "version": "1.0.0",
   "description": "information design project",
-  "main": "index.js",
-  "scripts": {
-    "build": "browserify index.js > docs/index.js",
-    "start": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/peppe-quint-boogaard/information-design.git"
-  },
   "author": "Peppe-Quint Boogaard",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/peppe-quint-boogaard/information-design/issues"
+  "main": "index.js",
+  "scripts": {
+    "build": "browserify index.js > docs/script.js",
+    "start": "npm run build"
   },
-  "homepage": "https://github.com/peppe-quint-boogaard/information-design#readme",
   "devDependencies": {
     "browserify": "^16.2.3",
     "prettier": "^1.15.3"
   },
   "dependencies": {
     "d3": "^5.7.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peppe-quint-boogaard/information-design.git"
+  },
+  "bugs": {
+    "url": "https://github.com/peppe-quint-boogaard/information-design/issues"
+  },
+  "homepage": "https://github.com/peppe-quint-boogaard/information-design#readme"
 }
