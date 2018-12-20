@@ -2,7 +2,6 @@
 const d3 = require("d3");
 
 // general values
-
 // https://codepen.io/znak/pen/qapRkQ
 const width = 100;
 const height = 100;
@@ -31,48 +30,35 @@ const treemap = d3
   .round(false);
 
 const data = {
-  name: "Portfolio",
+  name: "Repertoire",
   children: [
     {
-      name: "Identity",
+      name: "Streaming",
       children: [
         {
-          name: "Auto Lenart",
+          name: "Recording",
           children: [
-            { name: "Photo 1", value: "cgi-1.jpg" },
-            { name: "Photo 2", value: "cgi-2.jpg" },
-            { name: "Photo 3", value: "cgi-3.jpg" }
+            { name: "Sony UK", value: "cgi-1.jpg" },
+            { name: "Megaphonic", value: "cgi-2.jpg" },
+            { name: "Imogen Heap", value: "cgi-3.jpg" }
           ]
         },
         {
-          name: "PrintHouse",
+          name: "Publishing",
           children: [
-            { name: "Photo 1", value: "photo-1.jpg" },
-            { name: "Photo 2", value: "photo-2.jpg" },
-            { name: "Photo 3", value: "photo-3.jpg" },
-            { name: "Photo 4", value: "photo-4.jpg" },
-            { name: "Photo 5", value: "photo-5.jpg" }
-          ]
-        },
-        {
-          name: "Mertz",
-          children: [
-            { name: "Photo 1", value: "epc-1.jpg" },
-            { name: "Photo 2", value: "epc-2.jpg" },
-            { name: "Photo 3", value: "epc-3.jpg" }
-          ]
-        },
-        {
-          name: "Stanford",
-          children: [
-            { name: "Photo 1", value: "floorplan-1.jpg" },
-            { name: "Photo 3", value: "floorplan-2.jpg" }
+            { name: "PRS", value: "photo-1.jpg" },
+            { name: "DSP", value: "photo-2.jpg" },
+            { name: "MCPS", value: "photo-3.jpg" },
+            { name: "Imagen", value: "photo-4.jpg" },
+            { name: "Imogen", value: "photo-5.jpg" }
           ]
         }
       ]
     }
   ]
 };
+
+console.log(data);
 
 const nodes = d3.hierarchy(data).sum(function(d) {
   return d.value ? 1 : 0;
@@ -88,7 +74,7 @@ const cells = chart
   .selectAll(".node")
   .data(nodes.descendants())
   .enter()
-  .append("section")
+  .append("article")
   .attr("class", function(d) {
     return "node level-" + d.depth;
   })
@@ -132,13 +118,13 @@ function zoom(d) {
   x.domain([d.x0, d.x1]);
   y.domain([d.y0, d.y1]);
 
-  let t = d3
+  const transition = d3
     .transition()
     .duration(800)
     .ease(d3.easeCubicOut);
 
   cells
-    .transition(t)
+    .transition(transition)
     .style("left", function(d) {
       return x(d.x0) + "%";
     })
