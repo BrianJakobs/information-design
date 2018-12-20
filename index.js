@@ -2,6 +2,7 @@ const d3 = require("d3");
 
 // general values
 
+// https://codepen.io/znak/pen/qapRkQ
 const width = 100;
 const height = 100;
 
