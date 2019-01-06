@@ -64,11 +64,13 @@ const nodes = d3.hierarchy(data).sum(function(d) {
   return d.value ? 1 : 0;
 });
 
+console.log(nodes);
+
 let currentDepth;
 
 treemap(nodes);
 
-const chart = d3.select("#treemap-chart");
+const chart = d3.select("#chart-section");
 
 const cells = chart
   .selectAll(".node")
@@ -111,6 +113,7 @@ const parent = d3
   .datum(nodes)
   .on("click", zoom);
 
+// wanneer er geklikt wordt, gaat deze functie in werking
 function zoom(d) {
   currentDepth = d.depth;
   parent.datum(d.parent || nodes);

@@ -6,16 +6,35 @@
 }
 
 body {
-  /* background-image: linear-gradient(
-    to right bottom,
-    #42ebdc,
-    #00d4f5,
-    #00b8ff,
-    #0095ff,
-    #6464f8
-  ); */
+  font-size: 15px;
   height: 100vh;
   width: 100vw;
+}
+
+h1 {
+  color: #202163;
+  font-family: "Muli", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  color: #202163;
+  font-family: "Muli", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+p {
+  color: #202163;
+  font-family: "Muli", sans-serif;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  margin-bottom: 0.5rem;
+  max-width: 30rem;
 }
 
 /* main */
@@ -25,8 +44,8 @@ main {
   height: 100%;
 }
 
-#repertoire-info,
-#treemap-chart {
+#repertoire-section,
+#chart-section {
   display: block;
   height: 100%;
   position: relative;
@@ -34,18 +53,85 @@ main {
 }
 
 /* repertoire info */
-#repertoire-info {
+/* #repertoire-section {
   background-color: #edf4fe;
   padding: 1rem;
+} */
+
+#repertoire-section > header {
+  background-image: radial-gradient(
+      circle farthest-side at 78% 109%,
+      #35c6e4,
+      rgba(53, 198, 237, 0)
+    ),
+    radial-gradient(
+      circle farthest-corner at 0% 100%,
+      #6c43ff,
+      rgba(108, 67, 253, 0)
+    ),
+    radial-gradient(
+      circle farthest-corner at 0% 0%,
+      #35c6e4,
+      rgba(53, 198, 227, 0)
+    ),
+    radial-gradient(
+      circle farthest-corner at 100% 0%,
+      #5676f4,
+      rgba(86, 118, 253, 0)
+    );
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4rem 3rem;
 }
 
-#repertoire-info > header > img {
+#repertoire-section > header > .logo-repertoire {
+  margin-bottom: auto;
   width: 12.5rem;
 }
+
+#repertoire-section > header > .intro-heading {
+  color: white;
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+#repertoire-section > header > .intro-text {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.75rem;
+  margin-bottom: auto;
+  opacity: 0.5;
+}
+
+#repertoire-section > article {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 3rem;
+  width: 100%;
+}
+
+#repertoire-section > .name-section > section {
+  border-radius: 1rem;
+  box-shadow: 0 9px 35px 9px rgba(32, 33, 99, 0.04);
+  margin-top: 3rem;
+  min-height: 15rem;
+  padding: 1rem;
+  width: 100%;
+}
+
 /* treemap */
 
-#treemap-chart {
+#chart-section {
   overflow: hidden;
+  position: fixed;
+  right: 0;
+  top: 0;
 }
 
 .node {
