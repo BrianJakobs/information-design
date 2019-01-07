@@ -28,27 +28,41 @@ const treemap = d3
   .round(false);
 
 const data = {
-  name: "Repertoire",
+  name: "Song",
   children: [
+    { name: "Non Digital Radio", value: "non-digital-radio-image.png" },
     {
-      name: "Streaming",
+      name: "Digital Radio",
+      value: "digital-radio-image.png",
       children: [
         {
-          name: "Recording",
+          name: "PRO",
+          value: "pro-image.png",
           children: [
-            { name: "Sony UK", value: "cgi-1.jpg" },
-            { name: "Megaphonic", value: "cgi-2.jpg" },
-            { name: "Imogen Heap", value: "cgi-3.jpg" }
+            {
+              name: "Music Publisher",
+              value: "music-publisher-image.png",
+              children: [
+                {
+                  name: "Song Writer",
+                  value: "song-writer-image.png"
+                },
+                {
+                  name: "Componist",
+                  value: "componist-image.png"
+                }
+              ]
+            }
           ]
         },
         {
-          name: "Publishing",
+          name: "Record Label",
+          value: "record-label-image.png",
           children: [
-            { name: "PRS", value: "photo-1.jpg" },
-            { name: "DSP", value: "photo-2.jpg" },
-            { name: "MCPS", value: "photo-3.jpg" },
-            { name: "Imagen", value: "photo-4.jpg" },
-            { name: "Imogen", value: "photo-5.jpg" }
+            {
+              name: "Recording Artist",
+              value: "recording-artist-image.png"
+            }
           ]
         }
       ]
@@ -56,15 +70,22 @@ const data = {
   ]
 };
 
-const nodes = d3.hierarchy(data).sum(function(d) {
-  return d.value ? 1 : 0;
-});
+const nodes = d3
+  .hierarchy(data)
+  .count(function(d) {
+    return d.value ? 1 : 0;
+  })
+  .sort(function(a, b) {
+    return b.value - a.value;
+  });
 
 let currentDepth;
 
 treemap(nodes);
 
 const chart = d3.select("#chart-section");
+
+console.log(nodes.descendants());
 
 const cells = chart
   .selectAll(".node")
@@ -86,11 +107,14 @@ cells
     return y(d.y0) + "%";
   })
   .style("width", function(d) {
-    return x(d.x1) - x(d.x0) + "%";
+    return d.x1 - d.x0 + "%";
   })
   .style("height", function(d) {
     return y(d.y1) - y(d.y0) + "%";
   })
+  // .style("background-image", function(d) {
+  //   return d.value ? "url(src/img/" + d.data.value + ")" : "none";
+  // })
   .style("background-color", function(d) {
     while (d.depth > 2) d = d.parent;
     return color(d.data.name);
