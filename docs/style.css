@@ -54,6 +54,27 @@ main {
   height: 100%;
 }
 
+/* has to be removed, just for testing */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 16px;
+  z-index: 100;
+}
+.up {
+  font: bold 14px/1 sans-serif;
+  color: white;
+  width: 92px;
+  padding: 8px;
+  background-color: hsla(350, 80, 50, 0.8);
+  float: right;
+  cursor: pointer;
+}
+.up:hover {
+  background-color: hsla(350, 80, 40, 0.8);
+}
+
 #repertoire-section,
 #chart-section {
   display: block;
@@ -149,7 +170,7 @@ main {
   /* background: transparent url("") no-repeat 50% / cover; */
   /* border: 1px white solid; */
   overflow: hidden;
-  opacity: 0.8;
+  opacity: 1;
   transition: opacity 0.8s;
   cursor: pointer;
 }

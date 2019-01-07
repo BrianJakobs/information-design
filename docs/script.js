@@ -58,13 +58,9 @@ const data = {
   ]
 };
 
-console.log(data);
-
 const nodes = d3.hierarchy(data).sum(function(d) {
   return d.value ? 1 : 0;
 });
-
-console.log(nodes);
 
 let currentDepth;
 
@@ -154,6 +150,7 @@ function zoom(d) {
       return d.depth > currentDepth;
     })
     .classed("hide", false);
+  console.log(currentDepth);
 }
 
 },{"d3":33}],2:[function(require,module,exports){

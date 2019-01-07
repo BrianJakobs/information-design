@@ -1,6 +1,5 @@
 const d3 = require("d3");
 
-// general values
 // https://codepen.io/znak/pen/qapRkQ
 const width = 100;
 const height = 100;
@@ -57,13 +56,9 @@ const data = {
   ]
 };
 
-console.log(data);
-
 const nodes = d3.hierarchy(data).sum(function(d) {
   return d.value ? 1 : 0;
 });
-
-console.log(nodes);
 
 let currentDepth;
 
@@ -153,4 +148,5 @@ function zoom(d) {
       return d.depth > currentDepth;
     })
     .classed("hide", false);
+  console.log(currentDepth);
 }
