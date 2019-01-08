@@ -47,6 +47,25 @@ p {
   max-width: 30rem;
 }
 
+button {
+  background: none;
+  border: 3px solid #202163;
+  border-radius: 2rem;
+  color: #202163;
+  font-family: "Muli", sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  max-width: 12.5rem;
+  opacity: 0.5;
+  outline: none;
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
 /* main */
 main {
   display: flex;
@@ -147,6 +166,10 @@ nav {
   width: 100%;
 }
 
+#repertoire-section > article:last-child {
+  margin-bottom: 4rem;
+}
+
 #repertoire-section > .name-section > section {
   border-radius: 1rem;
   box-shadow: 0 9px 35px 9px rgba(32, 33, 99, 0.04);
@@ -194,6 +217,11 @@ nav {
   /* .label {
     filter: blur(10px);
   } */
+}
+
+.level-0 {
+  z-index: 4;
+  font-size: 15vmin;
 }
 
 .level-1 {
