@@ -30,6 +30,7 @@ const treemap = d3
 
 const data = {
   name: "Song",
+  value: "song",
   children: [
     {
       name: "Non Digital Radio",
@@ -97,8 +98,6 @@ treemap(nodes);
 
 const chart = d3.select("#chart-section");
 
-console.log(nodes.descendants());
-
 const cells = chart
   .selectAll(".node")
   .data(nodes.descendants())
@@ -127,11 +126,11 @@ cells
   .style("height", function(d) {
     return y(d.y1) - y(d.y0) + "%";
   })
-  .style("background-image", function(d) {
-    return d.value ? "url(src/img/" + d.data.img + ")" : "none";
-  })
+  // .style("background-image", function(d) {
+  //   return d.value ? "url(src/img/" + d.data.img + ")" : "none";
+  // })
   .style("background-color", function(d) {
-    while (d.depth > 2) d = d.parent;
+    while (d.depth > 6) d = d.parent;
     return color(d.data.name);
   })
   .on("click", zoom)
@@ -189,8 +188,6 @@ function zoom(d) {
     .classed("hide", false);
   console.log(currentDepth);
 }
-
-console.log(document.getElementById("digital-radio"));
 
 const animationTest = bodymovin.loadAnimation({
   container: document.getElementById("digital-radio"),
