@@ -30,26 +30,35 @@ const treemap = d3
 const data = {
   name: "Song",
   children: [
-    { name: "Non Digital Radio", value: "non-digital-radio-image.png" },
+    {
+      name: "Non Digital Radio",
+      value: "non-digital-image",
+      img: "non-digital-radio-image.png"
+    },
     {
       name: "Digital Radio",
-      value: "digital-radio-image.png",
+      value: "digital-radio",
+      img: "digital-radio-image.png",
       children: [
         {
           name: "PRO",
-          value: "pro-image.png",
+          value: "pro-image",
+          img: "pro-image.png",
           children: [
             {
               name: "Music Publisher",
-              value: "music-publisher-image.png",
+              value: "music-publisher",
+              img: "music-publisher-image.png",
               children: [
                 {
                   name: "Song Writer",
-                  value: "song-writer-image.png"
+                  value: "song-writer",
+                  img: "song-writer-image.png"
                 },
                 {
                   name: "Componist",
-                  value: "componist-image.png"
+                  value: "componist",
+                  img: "componist-image.png"
                 }
               ]
             }
@@ -57,11 +66,13 @@ const data = {
         },
         {
           name: "Record Label",
-          value: "record-label-image.png",
+          value: "record-label",
+          img: "record-label-image.png",
           children: [
             {
               name: "Recording Artist",
-              value: "recording-artist-image.png"
+              value: "record-artist",
+              img: "recording-artist-image.png"
             }
           ]
         }
@@ -95,6 +106,9 @@ const cells = chart
   .attr("class", function(d) {
     return "node level-" + d.depth;
   })
+  .attr("id", function(d) {
+    return d.data.value;
+  })
   .attr("title", function(d) {
     return d.data.name ? d.data.name : "null";
   });
@@ -112,9 +126,9 @@ cells
   .style("height", function(d) {
     return y(d.y1) - y(d.y0) + "%";
   })
-  // .style("background-image", function(d) {
-  //   return d.value ? "url(src/img/" + d.data.value + ")" : "none";
-  // })
+  .style("background-image", function(d) {
+    return d.value ? "url(src/img/" + d.data.img + ")" : "none";
+  })
   .style("background-color", function(d) {
     while (d.depth > 2) d = d.parent;
     return color(d.data.name);
@@ -174,3 +188,5 @@ function zoom(d) {
     .classed("hide", false);
   console.log(currentDepth);
 }
+
+console.log(document.getElementById("digital-radio"));
