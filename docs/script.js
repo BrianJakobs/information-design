@@ -33,7 +33,7 @@ const data = {
   children: [
     {
       name: "Non Digital Radio",
-      value: "non-digital-image",
+      value: "non-digital-radio",
       img: "non-digital-radio-image.png"
     },
     {
@@ -191,6 +191,22 @@ function zoom(d) {
 }
 
 console.log(document.getElementById("digital-radio"));
+
+const animationTest = bodymovin.loadAnimation({
+  container: document.getElementById("digital-radio"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data.json"
+});
+
+const animation = bodymovin.loadAnimation({
+  container: document.getElementById("non-digital-radio"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/updown.json"
+});
 
 },{"d3":33}],2:[function(require,module,exports){
 // https://d3js.org/d3-array/ v1.2.4 Copyright 2018 Mike Bostock
