@@ -119,9 +119,9 @@ cells
   .style("top", function(d) {
     return y(d.y0) + "%";
   })
-  .style("width", function(d) {
-    return d.x1 - d.x0 + "%";
-  })
+  // .style("width", function(d) {
+  //   return d.x1 - d.x0 + "%";
+  // })
   .style("height", function(d) {
     return y(d.y1) - y(d.y0) + "%";
   })
@@ -248,30 +248,28 @@ document.getElementsByTagName("body")[0].onscroll = () => {
 
   if (window.pageYOffset < sectionOne) {
     console.log("Song blijft staan tot...");
-    document
-      .getElementById("section-heading-one")
-      .classList.remove("test-class");
+    document.getElementsByClassName("level-0")[0].classList.remove("hide");
   } else if (
     window.pageYOffset > sectionOne &&
     window.pageYOffset < sectionTwo
   ) {
-    document
-      .getElementById("section-heading-one")
-      .classList.toggle("test-class");
+    document.getElementsByClassName("level-0")[0].classList.add("hide");
+    document.getElementById("non-digital-radio").classList.remove("hide");
+    document.getElementById("digital-radio").classList.remove("hide");
   } else if (
     window.pageYOffset > sectionTwo &&
     window.pageYOffset < sectionThree
   ) {
-    document
-      .getElementById("section-heading-two")
-      .classList.toggle("test-class");
+    // document.getElementsByClassName("level-0")[0].classList.add("hide");
+    document.getElementById("non-digital-radio").classList.add("hide");
+    document.getElementById("digital-radio").classList.add("hide");
   } else if (
     window.pageYOffset > sectionThree &&
     window.pageYOffset < sectionFour
   ) {
-    document
-      .getElementById("section-heading-three")
-      .classList.toggle("test-class");
+    // document.getElementsByClassName("level-0")[0].classList.add("hide");
+    document.getElementById("record-label").classList.add("hide");
+    document.getElementById("pro-image").classList.add("hide");
   } else if (
     window.pageYOffset > sectionFour &&
     window.pageYOffset < sectionFive
