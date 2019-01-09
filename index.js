@@ -188,6 +188,7 @@ function zoom(d) {
   console.log(currentDepth);
 }
 
+// list of all json animations
 const animationTest = bodymovin.loadAnimation({
   container: document.getElementById("digital-radio"),
   renderer: "svg",
@@ -203,3 +204,91 @@ const animation = bodymovin.loadAnimation({
   autoplay: true,
   path: "src/data/updown.json"
 });
+
+// functie(zoom) activeren op basis van coordinaten
+// check wheelDelta
+
+// when user scrolls down the page, detect when sections hit the indidcator
+document.getElementsByTagName("body")[0].onscroll = () => {
+  let measuringPoint = window.innerHeight / 2;
+  let positionBody = document.body.getBoundingClientRect();
+
+  const positionSectionOne = document
+    .getElementById("section-heading-one")
+    .getBoundingClientRect();
+  const sectionOne = positionSectionOne.top - positionBody.top - measuringPoint;
+
+  const positionSectionTwo = document
+    .getElementById("section-heading-two")
+    .getBoundingClientRect();
+  const sectionTwo = positionSectionTwo.top - positionBody.top - measuringPoint;
+
+  const positionSectionThree = document
+    .getElementById("section-heading-three")
+    .getBoundingClientRect();
+  const sectionThree =
+    positionSectionThree.top - positionBody.top - measuringPoint;
+
+  const positionSectionFour = document
+    .getElementById("section-heading-four")
+    .getBoundingClientRect();
+  const sectionFour =
+    positionSectionFour.top - positionBody.top - measuringPoint;
+
+  const positionSectionFive = document
+    .getElementById("section-heading-five")
+    .getBoundingClientRect();
+  const sectionFive =
+    positionSectionFive.top - positionBody.top - measuringPoint;
+
+  const positionSectionSix = document
+    .getElementById("section-heading-six")
+    .getBoundingClientRect();
+  const sectionSix = positionSectionSix.top - positionBody.top - measuringPoint;
+
+  if (window.pageYOffset < sectionOne) {
+    console.log("Song blijft staan tot...");
+    document
+      .getElementById("section-heading-one")
+      .classList.remove("test-class");
+  } else if (
+    window.pageYOffset > sectionOne &&
+    window.pageYOffset < sectionTwo
+  ) {
+    document
+      .getElementById("section-heading-one")
+      .classList.toggle("test-class");
+  } else if (
+    window.pageYOffset > sectionTwo &&
+    window.pageYOffset < sectionThree
+  ) {
+    document
+      .getElementById("section-heading-two")
+      .classList.toggle("test-class");
+  } else if (
+    window.pageYOffset > sectionThree &&
+    window.pageYOffset < sectionFour
+  ) {
+    document
+      .getElementById("section-heading-three")
+      .classList.toggle("test-class");
+  } else if (
+    window.pageYOffset > sectionFour &&
+    window.pageYOffset < sectionFive
+  ) {
+    document
+      .getElementById("section-heading-four")
+      .classList.toggle("test-class");
+  } else if (
+    window.pageYOffset > sectionFive &&
+    window.pageYOffset < sectionSix
+  ) {
+    document
+      .getElementById("section-heading-five")
+      .classList.toggle("test-class");
+  } else if (window.pageYOffset > sectionSix) {
+    document
+      .getElementById("section-heading-six")
+      .classList.toggle("test-class");
+  }
+};
