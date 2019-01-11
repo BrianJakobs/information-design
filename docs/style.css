@@ -226,25 +226,101 @@ nav {
 .level-0 {
   z-index: 4;
   font-size: 15vmin;
-  width: 100%;
+  width: 100% !important;
+}
+
+#song {
+  background-image: linear-gradient(
+    to right bottom,
+    #42ebdc,
+    #5aede0,
+    #6eefe3,
+    #7ff1e7,
+    #8ef3ea
+  );
 }
 
 .level-1 {
   z-index: 3;
   font-size: 10vmin;
-  width: 100%;
+  width: 100% !important;
+}
+
+#digital-radio {
+  background-image: linear-gradient(
+    to right bottom,
+    #8ef3ea,
+    #98f4ec,
+    #a1f5ee,
+    #aaf6ef,
+    #b3f7f1
+  );
+}
+
+#non-digital-radio {
+  background-image: linear-gradient(
+    to right bottom,
+    #6c43ff,
+    #7c57ff,
+    #8b6aff,
+    #997cff,
+    #a78eff
+  );
 }
 
 .level-2 {
   z-index: 2;
   font-size: 5vmin;
-  width: 100%;
+  width: 100% !important;
 }
 
+#pro-image {
+  background-image: linear-gradient(
+    to right bottom,
+    #71a3f3,
+    #7aa9f4,
+    #83aff5,
+    #8bb4f5,
+    #94baf6
+  );
+}
+
+#record-label {
+  background-image: linear-gradient(
+    to right bottom,
+    #a78eff,
+    #ae98ff,
+    #b6a1ff,
+    #bdabff,
+    #c4b4ff
+  );
+}
 .level-3 {
   z-index: 1;
   font-size: 2.5vmin;
-  width: 100%;
+  width: 100% !important;
+}
+
+#music-publisher {
+  background-image: linear-gradient(
+    to right bottom,
+    #94baf6,
+    #9dc0f7,
+    #a6c5f8,
+    #afcbf8,
+    #b8d1f9
+  );
+}
+
+#record-artist {
+  background-image: linear-gradient(
+    to right bottom,
+    #c4b4ff,
+    #ccbdff,
+    #d3c6ff,
+    #dbd0ff,
+    #e2d9ff
+  );
 }
 
 .test-class {
