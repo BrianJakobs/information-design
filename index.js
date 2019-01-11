@@ -119,9 +119,9 @@ cells
   .style("top", function(d) {
     return y(d.y0) + "%";
   })
-  // .style("width", function(d) {
-  //   return d.x1 - d.x0 + "%";
-  // })
+  .style("width", function(d) {
+    return d.x1 - d.x0 + "%";
+  })
   .style("height", function(d) {
     return y(d.y1) - y(d.y0) + "%";
   })
@@ -189,56 +189,78 @@ function zoom(d) {
 }
 
 // list of all json animations
-const animationTest = bodymovin.loadAnimation({
-  container: document.getElementById("digital-radio"),
+const aninmationSong = bodymovin.loadAnimation({
+  container: document.getElementById("song"),
   renderer: "svg",
   loop: true,
   autoplay: true,
-  path: "src/data/data.json"
-});
-
-const animation = bodymovin.loadAnimation({
-  container: document.getElementById("non-digital-radio"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/updown.json"
+  path: "src/data/song_animation.json"
 });
 
 // functie(zoom) activeren op basis van coordinaten
 // check wheelDelta
 
 // when user scrolls down the page, detect when sections hit the indidcator
-let measuringPoint = window.innerHeight / 2;
-let positionBody = document.body.getBoundingClientRect();
+document.getElementsByTagName("body")[0].onscroll = () => {
+  let measuringPoint = window.innerHeight / 2;
+  let positionBody = document.body.getBoundingClientRect();
 
-const positionSectionOne = document
-  .getElementById("section-heading-one")
-  .getBoundingClientRect();
-const sectionOne = positionSectionOne.top - positionBody.top - measuringPoint;
+  const positionSectionOne = document
+    .getElementById("section-heading-one")
+    .getBoundingClientRect();
+  const sectionOne = positionSectionOne.top - positionBody.top - measuringPoint;
 
-const positionSectionTwo = document
-  .getElementById("section-heading-two")
-  .getBoundingClientRect();
-const sectionTwo = positionSectionTwo.top - positionBody.top - measuringPoint;
+  const positionSectionTwo = document
+    .getElementById("section-heading-two")
+    .getBoundingClientRect();
+  const sectionTwo = positionSectionTwo.top - positionBody.top - measuringPoint;
 
-const positionSectionThree = document
-  .getElementById("section-heading-three")
-  .getBoundingClientRect();
-const sectionThree =
-  positionSectionThree.top - positionBody.top - measuringPoint;
+  const positionSectionThree = document
+    .getElementById("section-heading-three")
+    .getBoundingClientRect();
+  const sectionThree =
+    positionSectionThree.top - positionBody.top - measuringPoint;
 
-const positionSectionFour = document
-  .getElementById("section-heading-four")
-  .getBoundingClientRect();
-const sectionFour = positionSectionFour.top - positionBody.top - measuringPoint;
+  const positionSectionFour = document
+    .getElementById("section-heading-four")
+    .getBoundingClientRect();
+  const sectionFour =
+    positionSectionFour.top - positionBody.top - measuringPoint;
 
-const positionSectionFive = document
-  .getElementById("section-heading-five")
-  .getBoundingClientRect();
-const sectionFive = positionSectionFive.top - positionBody.top - measuringPoint;
+  const positionSectionFive = document
+    .getElementById("section-heading-five")
+    .getBoundingClientRect();
+  const sectionFive =
+    positionSectionFive.top - positionBody.top - measuringPoint;
 
-const positionSectionSix = document
-  .getElementById("section-heading-six")
-  .getBoundingClientRect();
-const sectionSix = positionSectionSix.top - positionBody.top - measuringPoint;
+  const positionSectionSix = document
+    .getElementById("section-heading-six")
+    .getBoundingClientRect();
+  const sectionSix = positionSectionSix.top - positionBody.top - measuringPoint;
+
+  if (window.pageYOffset < sectionTwo) {
+    console.log("Song blijft staan tot...");
+    document.getElementsByClassName("level-0")[0].classList.remove("hide");
+  } else if (
+    window.pageYOffset > sectionTwo &&
+    window.pageYOffset < sectionThree
+  ) {
+    document.getElementsByClassName("level-0")[0].classList.add("hide");
+    document.getElementById("non-digital-radio").classList.remove("hide");
+    document.getElementById("digital-radio").classList.remove("hide");
+  } else if (
+    window.pageYOffset > sectionThree &&
+    window.pageYOffset < sectionFour
+  ) {
+    // document.getElementsByClassName("level-0")[0].classList.add("hide");
+    document.getElementById("non-digital-radio").classList.add("hide");
+    document.getElementById("digital-radio").classList.add("hide");
+  } else if (
+    window.pageYOffset > sectionFour &&
+    window.pageYOffset < sectionFive
+  ) {
+    // document.getElementsByClassName("level-0")[0].classList.add("hide");
+    document.getElementById("record-label").classList.add("hide");
+    document.getElementById("pro-image").classList.add("hide");
+  }
+};
