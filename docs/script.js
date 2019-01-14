@@ -107,9 +107,10 @@ const aninmationSong = bodymovin.loadAnimation({
 });
 
 document.getElementsByClassName("level-0")[0].classList.remove("hide");
+const bodyPage = document.getElementsByTagName("body")[0];
 
 // when user scrolls down the page, detect when sections hit the measure point
-document.getElementsByTagName("body")[0].onscroll = () => {
+bodyPage.onscroll = () => {
   let measuringPoint = window.innerHeight / 2;
   let positionBody = document.body.getBoundingClientRect();
 
@@ -172,7 +173,6 @@ document.getElementsByTagName("body")[0].onscroll = () => {
     window.pageYOffset > sectionThree &&
     window.pageYOffset < sectionFour
   ) {
-    // document.getElementsByClassName("level-0")[0].classList.add("hide");
     document.getElementById("non-digital-radio").classList.add("hide");
     document.getElementById("digital-radio").classList.add("hide");
     document.getElementById("record-label").classList.remove("hide");

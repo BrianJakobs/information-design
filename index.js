@@ -106,9 +106,10 @@ const aninmationSong = bodymovin.loadAnimation({
 });
 
 document.getElementsByClassName("level-0")[0].classList.remove("hide");
+const bodyPage = document.getElementsByTagName("body")[0];
 
 // when user scrolls down the page, detect when sections hit the measure point
-document.getElementsByTagName("body")[0].onscroll = () => {
+bodyPage.onscroll = () => {
   let measuringPoint = window.innerHeight / 2;
   let positionBody = document.body.getBoundingClientRect();
 
