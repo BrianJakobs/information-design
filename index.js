@@ -69,9 +69,6 @@ const data = {
 const nodes = d3.hierarchy(data).count(function(d) {
   return d.value ? 1 : 0;
 });
-// .sort(function(a, b) {
-//   return b.value - a.value;
-// });
 
 treemap(nodes);
 
@@ -93,18 +90,6 @@ const cells = chart
   });
 
 cells
-  // .style("left", function(d) {
-  //   return x(d.x0) + "%";
-  // })
-  // .style("top", function(d) {
-  //   return y(d.y0) + "%";
-  // })
-  // .style("width", function(d) {
-  //   return d.x1 - d.x0 + "%";
-  // })
-  // .style("height", function(d) {
-  //   return d.y1 - d.y0 + "%";
-  // })
   .append("p")
   .attr("class", "label")
   .text(function(d) {
@@ -186,7 +171,6 @@ document.getElementsByTagName("body")[0].onscroll = () => {
     window.pageYOffset > sectionThree &&
     window.pageYOffset < sectionFour
   ) {
-    // document.getElementsByClassName("level-0")[0].classList.add("hide");
     document.getElementById("non-digital-radio").classList.add("hide");
     document.getElementById("digital-radio").classList.add("hide");
     document.getElementById("record-label").classList.remove("hide");
@@ -195,11 +179,9 @@ document.getElementsByTagName("body")[0].onscroll = () => {
     window.pageYOffset > sectionFour &&
     window.pageYOffset < sectionFive
   ) {
-    // document.getElementsByClassName("level-0")[0].classList.add("hide");
     document.getElementById("record-label").classList.add("hide");
     document.getElementById("pro").classList.add("hide");
     document.getElementById("performer").classList.remove("hide");
-    // document.getElementById("").classList.remove("hide");
   } else if (
     window.pageYOffset > sectionFive &&
     window.pageYOffset < sectionSix
