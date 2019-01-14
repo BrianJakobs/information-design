@@ -105,12 +105,23 @@ const aninmationSong = bodymovin.loadAnimation({
   path: "src/data/song_animation.json"
 });
 
+//scroll to button
+const scrollToButton = document.getElementsByClassName("scroll-down-btn")[0];
+const firstHeading = document
+  .getElementById("section-heading-one")
+  .getBoundingClientRect();
+function scrollToFirstSection() {
+  window.scrollTo({ top: firstHeading.top - 100, behavior: "smooth" });
+}
+
+scrollToButton.addEventListener("click", scrollToFirstSection, false);
+
 document.getElementsByClassName("level-0")[0].classList.remove("hide");
 const bodyPage = document.getElementsByTagName("body")[0];
 
 // when user scrolls down the page, detect when sections hit the measure point
 bodyPage.onscroll = () => {
-  let measuringPoint = window.innerHeight / 2;
+  let measuringPoint = window.innerHeight / 3;
   let positionBody = document.body.getBoundingClientRect();
 
   const positionSectionOne = document
