@@ -82,27 +82,6 @@ main {
   height: 100%;
 }
 
-/* has to be removed, just for testing */
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  padding: 16px;
-  z-index: 100;
-}
-.up {
-  font: bold 14px/1 sans-serif;
-  color: white;
-  width: 92px;
-  padding: 8px;
-  background-color: hsla(350, 80, 50, 0.8);
-  float: right;
-  cursor: pointer;
-}
-.up:hover {
-  background-color: hsla(350, 80, 40, 0.8);
-}
-
 #repertoire-section,
 #chart-section {
   display: block;
@@ -110,12 +89,6 @@ nav {
   position: relative;
   width: 50%;
 }
-
-/* repertoire info */
-/* #repertoire-section {
-  background-color: #edf4fe;
-  padding: 1rem;
-} */
 
 #repertoire-section > header {
   background-image: radial-gradient(
@@ -197,12 +170,9 @@ nav {
 
 .node {
   position: absolute;
-  /* background: transparent url("") no-repeat 50% / cover; */
-  /* border: 1px white solid; */
   overflow: hidden;
   opacity: 1;
   transition: opacity 0.8s;
-  cursor: pointer;
 }
 
 .label {
@@ -224,9 +194,12 @@ nav {
 }
 
 .level-0 {
-  z-index: 4;
   font-size: 15vmin;
-  width: 100% !important;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  z-index: 4;
 }
 
 #song {
@@ -238,12 +211,15 @@ nav {
     #7ff1e7,
     #8ef3ea
   );
+  /* opacity: 1; */
 }
 
 .level-1 {
   z-index: 3;
   font-size: 10vmin;
-  width: 100% !important;
+  left: 0%;
+  height: 50%;
+  width: 100%;
 }
 
 #digital-radio {
@@ -255,6 +231,7 @@ nav {
     #aaf6ef,
     #b3f7f1
   );
+  top: 0%;
 }
 
 #non-digital-radio {
@@ -266,15 +243,18 @@ nav {
     #997cff,
     #a78eff
   );
+  top: 50%;
 }
 
 .level-2 {
   z-index: 2;
   font-size: 5vmin;
-  width: 100% !important;
+  height: 100%;
+  top: 0%;
+  width: 50%;
 }
 
-#pro-image {
+#pro {
   background-image: linear-gradient(
     to right bottom,
     #71a3f3,
@@ -283,6 +263,7 @@ nav {
     #8bb4f5,
     #94baf6
   );
+  left: 50%;
 }
 
 #record-label {
@@ -294,11 +275,16 @@ nav {
     #bdabff,
     #c4b4ff
   );
+  left: 0%;
 }
+
 .level-3 {
   z-index: 1;
   font-size: 2.5vmin;
-  width: 100% !important;
+  height: 100%;
+  left: 0%;
+  top: 0%;
+  width: 100%;
 }
 
 #music-publisher {
@@ -310,9 +296,11 @@ nav {
     #afcbf8,
     #b8d1f9
   );
+  height: 100%;
+  width: 100%;
 }
 
-#record-artist {
+#performer {
   background-image: linear-gradient(
     to right bottom,
     #c4b4ff,
@@ -321,8 +309,17 @@ nav {
     #dbd0ff,
     #e2d9ff
   );
+  height: 100%;
+  width: 100%;
 }
 
-.test-class {
+.level-4 {
+  z-index: 0;
+  font-size: 2.5vmin;
+}
+
+#song-writer {
   background-color: red;
+  height: 100%;
+  width: 100%;
 }
