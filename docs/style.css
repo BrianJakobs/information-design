@@ -74,10 +74,12 @@ button {
   outline: none;
   padding: 1rem 1.5rem;
   text-transform: uppercase;
+  transition: 0.25s ease-in-out;
 }
 
 button:hover {
   cursor: pointer;
+  transform: translateY(-0.25rem);
 }
 
 /* main */
@@ -155,13 +157,9 @@ main {
   width: 100%;
 }
 
-#repertoire-section > .name-section > section {
-  border-radius: 1rem;
-  box-shadow: 0 9px 35px 9px rgba(32, 33, 99, 0.04);
-  margin-top: 3rem;
-  min-height: 15rem;
-  padding: 1rem;
-  width: 50%;
+#repertoire-section > article > .repertoire-info {
+  border: 2px solid grey;
+  padding: 2.5rem;
 }
 
 /* treemap */
