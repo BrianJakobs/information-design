@@ -116,6 +116,16 @@ function scrollToFirstSection() {
 
 scrollToButton.addEventListener("click", scrollToFirstSection, false);
 
+// expand repertoire section
+const repertoireSection = document.getElementsByClassName("repertoire-info");
+console.log(repertoireSection);
+
+Object.entries(repertoireSection).map(object => {
+  object[1].addEventListener("click", function() {
+    this.classList.toggle("expand");
+  });
+});
+
 document.getElementsByClassName("level-0")[0].classList.remove("hide");
 const bodyPage = document.getElementsByTagName("body")[0];
 
