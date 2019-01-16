@@ -126,10 +126,44 @@ Object.entries(repertoireSection).map(object => {
   });
 });
 
+// show image on click
+const buttons = document.querySelectorAll(".europe, .usa");
+const splitImage = document.querySelector(".publisher-split");
+
+buttons.forEach(function(button, index) {
+  button.addEventListener("click", () => {
+    if (
+      button.classList.contains("usa") &&
+      button.classList.contains("btn-inactive")
+    ) {
+      console.log(buttons[index]);
+      buttons[index].classList.add("btn-active");
+      buttons[index].classList.remove("btn-inactive");
+      console.log("het werkt");
+      console.log(button.previousElementSibling);
+      splitImage.src = "src/img/publisher_split_usa.svg";
+      button.previousElementSibling.classList.remove("btn-active");
+      button.previousElementSibling.classList.add("btn-inactive");
+    } else if (
+      button.classList.contains("europe") &&
+      button.classList.contains("btn-inactive")
+    ) {
+      console.log(buttons[index]);
+      buttons[index].classList.add("btn-active");
+      buttons[index].classList.remove("btn-inactive");
+      console.log("het werkt");
+      console.log(button.nextElementSibling);
+      splitImage.src = "src/img/publisher_split_eu.svg";
+      button.nextElementSibling.classList.remove("btn-active");
+      button.nextElementSibling.classList.add("btn-inactive");
+    }
+  });
+});
+
+// when user scrolls down the page, detect when sections hit the measure point
 document.getElementsByClassName("level-0")[0].classList.remove("hide");
 const bodyPage = document.getElementsByTagName("body")[0];
 
-// when user scrolls down the page, detect when sections hit the measure point
 bodyPage.onscroll = () => {
   let measuringPoint = window.innerHeight / 3;
   let positionBody = document.body.getBoundingClientRect();
