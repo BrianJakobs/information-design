@@ -107,7 +107,7 @@ const aninmationSong = bodymovin.loadAnimation({
 });
 
 //scroll to button
-const scrollToButton = document.getElementsByClassName("scroll-down-btn")[0];
+const scrollToButton = document.getElementsByClassName("btn-scroll")[0];
 const firstHeading = document
   .getElementById("section-heading-one")
   .getBoundingClientRect();
@@ -119,6 +119,7 @@ scrollToButton.addEventListener("click", scrollToFirstSection, false);
 
 // expand repertoire section
 const repertoireSection = document.getElementsByClassName("repertoire-info");
+const textSection = document.getElementsByClassName("repertoire-text")[0];
 console.log(repertoireSection);
 
 Object.entries(repertoireSection).map(object => {
