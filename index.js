@@ -136,26 +136,16 @@ buttons.forEach(function(button, index) {
       button.classList.contains("usa") &&
       button.classList.contains("btn-inactive")
     ) {
-      console.log(buttons[index]);
-      buttons[index].classList.add("btn-active");
-      buttons[index].classList.remove("btn-inactive");
-      console.log("het werkt");
-      console.log(button.previousElementSibling);
+      buttons[index].classList.toggle("btn-inactive");
       splitImage.src = "src/img/publisher_split_usa.svg";
-      button.previousElementSibling.classList.remove("btn-active");
-      button.previousElementSibling.classList.add("btn-inactive");
+      button.previousElementSibling.classList.toggle("btn-inactive");
     } else if (
       button.classList.contains("europe") &&
       button.classList.contains("btn-inactive")
     ) {
-      console.log(buttons[index]);
-      buttons[index].classList.add("btn-active");
-      buttons[index].classList.remove("btn-inactive");
-      console.log("het werkt");
-      console.log(button.nextElementSibling);
+      buttons[index].classList.toggle("btn-inactive");
       splitImage.src = "src/img/publisher_split_eu.svg";
-      button.nextElementSibling.classList.remove("btn-active");
-      button.nextElementSibling.classList.add("btn-inactive");
+      button.nextElementSibling.classList.toggle("btn-inactive");
     }
   });
 });
