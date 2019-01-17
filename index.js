@@ -89,13 +89,6 @@ const cells = chart
     return d.data.name ? d.data.name : "null";
   });
 
-cells
-  .append("p")
-  .attr("class", "label")
-  .text(function(d) {
-    return d.data.name ? d.data.name : "---";
-  });
-
 // list of all json animations
 const aninmationSong = bodymovin.loadAnimation({
   container: document.getElementById("song"),
@@ -103,6 +96,22 @@ const aninmationSong = bodymovin.loadAnimation({
   loop: true,
   autoplay: true,
   path: "src/data/song_animation.json"
+});
+
+const aninmationPerformer = bodymovin.loadAnimation({
+  container: document.getElementById("performer"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data/performer_animation.json"
+});
+
+const aninmationSongwriter = bodymovin.loadAnimation({
+  container: document.getElementById("song-writer"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data/distribute_animation.json"
 });
 
 //scroll to button
