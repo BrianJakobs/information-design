@@ -76,6 +76,7 @@ button {
   font-size: 1rem;
   font-weight: bold;
   margin-right: auto;
+  min-width: 12.5rem;
   opacity: 0.5;
   outline: none;
   padding: 1rem 1.5rem;
@@ -171,7 +172,7 @@ main {
 }
 
 #repertoire-section > article > .repertoire-info {
-  align-items: center;
+  align-items: flex-start;
   background-color: white;
   border-radius: 1rem;
   box-shadow: 0 9px 35px 9px rgba(32, 33, 99, 0.04);
@@ -196,7 +197,7 @@ main {
 }
 
 #repertoire-section > article > .repertoire-info.expand {
-  height: 15rem;
+  height: 14rem;
   opacity: 1;
 }
 
@@ -207,13 +208,14 @@ main {
 #repertoire-section > article > .repertoire-info > h4 {
   color: #202163;
   margin-bottom: 0;
+  margin: 0.5rem 0;
   text-transform: uppercase;
 }
 
 #repertoire-section > article > .repertoire-info > p {
   color: rgba(32, 33, 99, 0.4);
   font-size: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 /* treemap */
@@ -426,4 +428,46 @@ main {
   background-color: LightCoral;
   height: 100%;
   width: 100%;
+}
+
+.song-writer > section {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.song-writer > section > img {
+  margin: 0 0 2rem;
+  min-width: 30rem;
+}
+
+.song-writer > section > button {
+  margin: 0;
+}
+
+.song-writer > section > .btn-inactive {
+  opacity: 0.1;
+}
+
+.song-writer > section > .btn-inactive:hover {
+  opacity: 0.25;
+}
+
+@media screen and (max-width: 1280px) {
+  #repertoire-section > header,
+  #repertoire-section > article {
+    padding: 2.5rem;
+  }
+
+  #repertoire-section > article > .repertoire-info.expand {
+    height: 17rem;
+  }
+}
+
+@@media screen and (max-width: 1070px) {
+  /* shows that screen has to be wider */
 }
