@@ -115,6 +115,14 @@ const aninmationSongwriter = bodymovin.loadAnimation({
   path: "src/data/distribute_animation.json"
 });
 
+const aninmationPublisher = bodymovin.loadAnimation({
+  container: document.getElementById("music-publisher"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data/publisher_animation.json"
+});
+
 //scroll to button
 const scrollToButton = document.getElementsByClassName("btn-scroll")[0];
 const firstHeading = document
