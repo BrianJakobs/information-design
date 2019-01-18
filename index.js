@@ -80,7 +80,7 @@ const cells = chart
   .enter()
   .append("article")
   .attr("class", function(d) {
-    return "node hide level-" + d.depth;
+    return "node level-" + d.depth;
   })
   .attr("id", function(d) {
     return d.data.value;
@@ -106,21 +106,21 @@ const aninmationPerformer = bodymovin.loadAnimation({
   path: "src/data/performer_animation.json"
 });
 
-const aninmationSongwriter = bodymovin.loadAnimation({
-  container: document.getElementById("song-writer"),
+const aninmationPro = bodymovin.loadAnimation({
+  container: document.getElementById("pro"),
   renderer: "svg",
   loop: true,
   autoplay: true,
   path: "src/data/distribute_animation.json"
 });
 
-const aninmationPublisher = bodymovin.loadAnimation({
-  container: document.getElementById("music-publisher"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/publisher_animation.json"
-});
+// const aninmationSongwriter = bodymovin.loadAnimation({
+//   container: document.getElementById("song-writer"),
+//   renderer: "svg",
+//   loop: true,
+//   autoplay: true,
+//   path: "src/data/publisher_animation.json"
+// });
 
 //scroll to button
 const scrollToButton = document.getElementsByClassName("btn-scroll")[0];
