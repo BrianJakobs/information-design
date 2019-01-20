@@ -114,13 +114,13 @@ const aninmationPro = bodymovin.loadAnimation({
   path: "src/data/distribute_animation.json"
 });
 
-// const aninmationSongwriter = bodymovin.loadAnimation({
-//   container: document.getElementById("song-writer"),
-//   renderer: "svg",
-//   loop: true,
-//   autoplay: true,
-//   path: "src/data/publisher_animation.json"
-// });
+const aninmationSongwriter = bodymovin.loadAnimation({
+  container: document.getElementById("song-writer"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data/publisher_animation.json"
+});
 
 //scroll to button
 const scrollToButton = document.getElementsByClassName("btn-scroll")[0];
