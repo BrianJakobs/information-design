@@ -163,6 +163,7 @@ main {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
+  min-height: 80vh;
   padding: 5rem;
   width: 100%;
 }
@@ -509,8 +510,4 @@ main {
   #repertoire-section > article > .repertoire-info.expand {
     height: 17rem;
   }
-}
-
-@@media screen and (max-width: 1070px) {
-  /* shows that screen has to be wider */
 }
