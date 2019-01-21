@@ -1,9 +1,6 @@
 <h1 align="center">
 	<img src="docs/src/img/rpt-logo-gradient-horizontal.png" width="300" />
 	<br>
-	<br>
-	Repertoire
-	<br>
 </h1>
 <br>
 <p align="center">
