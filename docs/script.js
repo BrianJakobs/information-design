@@ -1,7 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const d3 = require("d3");
 
-// https://codepen.io/znak/pen/qapRkQ
 const width = 100;
 const height = 100;
 
@@ -99,6 +98,14 @@ const aninmationSong = bodymovin.loadAnimation({
   path: "src/data/song_animation.json"
 });
 
+const aninmationNidj = bodymovin.loadAnimation({
+  container: document.getElementById("non-digital-radio"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data/nidj_animation.json"
+});
+
 const aninmationPerformer = bodymovin.loadAnimation({
   container: document.getElementById("performer"),
   renderer: "svg",
@@ -169,8 +176,8 @@ buttons.forEach(function(button, index) {
 });
 
 // when user scrolls down the page, detect when sections hit the measure point
-document.getElementsByClassName("level-0")[0].classList.remove("hide");
 const bodyPage = document.getElementsByTagName("body")[0];
+// bodyPage.classList.add("hide");
 
 bodyPage.onscroll = () => {
   let measuringPoint = window.innerHeight / 3;
@@ -215,20 +222,19 @@ bodyPage.onscroll = () => {
   const sectionSeven =
     positionSectionSeven.top - positionBody.top - measuringPoint;
 
-  const positionSectionEight = document
-    .getElementById("section-heading-eight")
-    .getBoundingClientRect();
-  const sectionEight =
-    positionSectionEight.top - positionBody.top - measuringPoint;
-
-  if (window.pageYOffset < sectionTwo) {
-    console.log("Song blijft staan tot...");
-    document.getElementsByClassName("level-0")[0].classList.remove("hide");
+  if (window.pageYOffset < sectionOne) {
+    document.getElementById("chart-intro-section").classList.remove("hide");
+  } else if (
+    window.pageYOffset > sectionOne &&
+    window.pageYOffset < sectionTwo
+  ) {
+    document.getElementById("chart-intro-section").classList.add("hide");
+    document.getElementById("song").classList.remove("hide");
   } else if (
     window.pageYOffset > sectionTwo &&
     window.pageYOffset < sectionThree
   ) {
-    document.getElementsByClassName("level-0")[0].classList.add("hide");
+    document.getElementById("song").classList.add("hide");
     document.getElementById("non-digital-radio").classList.remove("hide");
     document.getElementById("digital-radio").classList.remove("hide");
   } else if (
@@ -260,10 +266,7 @@ bodyPage.onscroll = () => {
     document.getElementById("record-label").classList.add("hide");
     document.getElementById("pro").classList.add("hide");
     document.getElementById("music-publisher").classList.remove("hide");
-  } else if (
-    window.pageYOffset > sectionSeven &&
-    window.pageYOffset < sectionEight
-  ) {
+  } else if (window.pageYOffset > sectionSeven) {
     document.getElementById("music-publisher").classList.add("hide");
     document.getElementById("song-writer").classList.remove("hide");
   }
