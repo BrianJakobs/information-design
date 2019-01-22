@@ -76,12 +76,13 @@ button {
   font-size: 1rem;
   font-weight: bold;
   margin-right: auto;
-  min-width: 12.5rem;
+  max-height: 4rem;
   opacity: 0.5;
   outline: none;
   padding: 1rem 1.5rem;
   text-transform: uppercase;
   transition: 0.25s ease-in-out;
+  width: 12.5rem;
 }
 
 button:hover {
@@ -228,6 +229,27 @@ main {
   top: 0;
 }
 
+#chart-intro-section {
+  background-image: linear-gradient(
+    to right bottom,
+    #8ef3ea,
+    #7ff1e7,
+    #6eefe3,
+    #5aede0,
+    #42ebdc
+  );
+  height: 100%;
+  left: 0%;
+  padding: 5rem;
+  position: absolute;
+  overflow: hidden;
+  opacity: 1;
+  transition: 0.8s ease-in-out;
+  top: 0%;
+  width: 100%;
+  z-index: 10;
+}
+
 .node {
   position: absolute;
   overflow: hidden;
@@ -267,13 +289,12 @@ main {
 #song {
   background-image: linear-gradient(
     to right bottom,
-    #42ebdc,
-    #5aede0,
-    #6eefe3,
-    #7ff1e7,
+    #b3f7f1,
+    #aaf6ef,
+    #a1f5ee,
+    #98f4ec,
     #8ef3ea
   );
-  /* opacity: 1; */
 }
 
 .level-1 {
@@ -287,11 +308,11 @@ main {
 #digital-radio {
   background-image: linear-gradient(
     to right bottom,
-    #8ef3ea,
-    #98f4ec,
-    #a1f5ee,
-    #aaf6ef,
-    #b3f7f1
+    #4d8cf0,
+    #5692f1,
+    #5f98f2,
+    #689df2,
+    #71a3f3
   );
   top: 0%;
 }
@@ -308,11 +329,11 @@ main {
 #non-digital-radio {
   background-image: linear-gradient(
     to right bottom,
-    #6c43ff,
-    #7c57ff,
-    #8b6aff,
+    #a78eff,
     #997cff,
-    #a78eff
+    #8b6aff,
+    #7c57ff,
+    #6c43ff
   );
   top: 50%;
 }
@@ -340,11 +361,11 @@ main {
 #record-label {
   background-image: linear-gradient(
     to right bottom,
-    #a78eff,
-    #ae98ff,
-    #b6a1ff,
-    #bdabff,
-    #c4b4ff
+    #94baf6,
+    #8bb4f5,
+    #83aff5,
+    #7aa9f4,
+    #71a3f3
   );
   left: 0%;
 }
@@ -374,11 +395,11 @@ main {
 #performer {
   background-image: linear-gradient(
     to right bottom,
-    #c4b4ff,
-    #ccbdff,
-    #d3c6ff,
-    #dbd0ff,
-    #e2d9ff
+    #b8d1f9,
+    #afcbf8,
+    #a6c5f8,
+    #9dc0f7,
+    #94baf6
   );
   height: 100%;
   width: 100%;
@@ -430,11 +451,11 @@ main {
 #song-writer {
   background-image: linear-gradient(
     to right bottom,
-    #b8d1f9,
-    #bed5f9,
-    #c4d8f9,
+    #cfdff9,
     #c9dcf9,
-    #cfdff9
+    #c4d8f9,
+    #bed5f9,
+    #b8d1f9
   );
   height: 100%;
   width: 100%;
