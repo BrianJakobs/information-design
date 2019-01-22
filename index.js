@@ -97,6 +97,14 @@ const aninmationSong = bodymovin.loadAnimation({
   path: "src/data/song_animation.json"
 });
 
+const aninmationIdj = bodymovin.loadAnimation({
+  container: document.getElementById("digital-radio"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data/idj_animation.json"
+});
+
 const aninmationNidj = bodymovin.loadAnimation({
   container: document.getElementById("non-digital-radio"),
   renderer: "svg",
@@ -118,7 +126,15 @@ const aninmationPro = bodymovin.loadAnimation({
   renderer: "svg",
   loop: true,
   autoplay: true,
-  path: "src/data/distribute_animation.json"
+  path: "src/data/pro_animation.json"
+});
+
+const aninmationPublisher = bodymovin.loadAnimation({
+  container: document.getElementById("music-publisher"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data/publisher_animation.json"
 });
 
 const aninmationSongwriter = bodymovin.loadAnimation({
@@ -126,7 +142,7 @@ const aninmationSongwriter = bodymovin.loadAnimation({
   renderer: "svg",
   loop: true,
   autoplay: true,
-  path: "src/data/publisher_animation.json"
+  path: "src/data/song-writer_animation.json"
 });
 
 //scroll to button
@@ -250,20 +266,20 @@ bodyPage.onscroll = () => {
   ) {
     document.getElementById("record-label").classList.add("hide");
     document.getElementById("pro").classList.add("hide");
-    document.getElementById("performer").classList.remove("hide");
+    // document.getElementById("performer").classList.remove("hide");
   } else if (
     window.pageYOffset > sectionFive &&
     window.pageYOffset < sectionSix
   ) {
     document.getElementById("record-label").classList.remove("hide");
     document.getElementById("pro").classList.remove("hide");
-    document.getElementById("performer").classList.add("hide");
   } else if (
     window.pageYOffset > sectionSix &&
     window.pageYOffset < sectionSeven
   ) {
     document.getElementById("record-label").classList.add("hide");
     document.getElementById("pro").classList.add("hide");
+    document.getElementById("performer").classList.add("hide");
     document.getElementById("music-publisher").classList.remove("hide");
   } else if (window.pageYOffset > sectionSeven) {
     document.getElementById("music-publisher").classList.add("hide");
