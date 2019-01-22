@@ -267,13 +267,13 @@ bodyPage.onscroll = () => {
   ) {
     document.getElementById("record-label").classList.add("hide");
     document.getElementById("pro").classList.add("hide");
-    // document.getElementById("performer").classList.remove("hide");
   } else if (
     window.pageYOffset > sectionFive &&
     window.pageYOffset < sectionSix
   ) {
     document.getElementById("record-label").classList.remove("hide");
     document.getElementById("pro").classList.remove("hide");
+    document.getElementById("performer").classList.remove("hide");
   } else if (
     window.pageYOffset > sectionSix &&
     window.pageYOffset < sectionSeven
