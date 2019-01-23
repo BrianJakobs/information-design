@@ -76,68 +76,27 @@ const cells = chart
   });
 
 // list of all json animations
-const aninmationSong = bodymovin.loadAnimation({
-  container: document.getElementById("song"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/song_animation.json"
-});
+const animations = [
+  "song",
+  "digital-radio",
+  "non-digital-radio",
+  "record-label",
+  "pro",
+  "performer",
+  "music-publisher",
+  "song-writer"
+];
 
-const aninmationIdj = bodymovin.loadAnimation({
-  container: document.getElementById("digital-radio"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/idj_animation.json"
-});
-
-const aninmationNidj = bodymovin.loadAnimation({
-  container: document.getElementById("non-digital-radio"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/nidj_animation.json"
-});
-
-const aninmationLabel = bodymovin.loadAnimation({
-  container: document.getElementById("record-label"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/record-label_animation.json"
-});
-
-const aninmationPro = bodymovin.loadAnimation({
-  container: document.getElementById("pro"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/pro_animation.json"
-});
-
-const aninmationPerformer = bodymovin.loadAnimation({
-  container: document.getElementById("performer"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/performer_animation.json"
-});
-
-const aninmationPublisher = bodymovin.loadAnimation({
-  container: document.getElementById("music-publisher"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/publisher_animation.json"
-});
-
-const aninmationSongwriter = bodymovin.loadAnimation({
-  container: document.getElementById("song-writer"),
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "src/data/song-writer_animation.json"
+animations.forEach(anim => {
+  const animation = document.getElementById(anim);
+  const animData = {
+    container: animation,
+    renderer: "svg",
+    loop: true,
+    autplay: true,
+    path: "src/data/" + anim + "_animation.json"
+  };
+  const animElem = bodymovin.loadAnimation(animData);
 });
 
 // scroll to button
@@ -153,7 +112,6 @@ scrollToButton.addEventListener("click", scrollToFirstSection, false);
 
 // expand repertoire section
 const repertoireSection = document.getElementsByClassName("section-info");
-const textSection = document.getElementsByClassName("repertoire-text")[0];
 
 Object.entries(repertoireSection).map(object => {
   object[1].addEventListener("click", function() {
