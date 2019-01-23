@@ -7,7 +7,8 @@
   "main": "index.js",
   "scripts": {
     "build": "browserify index.js > docs/script.js",
-    "start": "npm run build"
+    "start": "npm run build",
+    "server": "http-server ./docs"
   },
   "devDependencies": {
     "browserify": "^16.2.3",
