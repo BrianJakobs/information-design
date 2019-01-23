@@ -1,4 +1,5 @@
 const d3 = require("d3");
+const lottie = require("lottie-web");
 
 const width = 100;
 const height = 100;
@@ -96,7 +97,7 @@ animations.forEach(anim => {
     autplay: true,
     path: "src/data/" + anim + "_animation.json"
   };
-  const animElem = bodymovin.loadAnimation(animData);
+  const animElem = lottie.loadAnimation(animData);
 });
 
 // scroll to button
