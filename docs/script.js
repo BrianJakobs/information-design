@@ -4,16 +4,6 @@ const d3 = require("d3");
 const width = 100;
 const height = 100;
 
-const x = d3
-  .scaleLinear()
-  .domain([0, width])
-  .range([0, width]);
-
-const y = d3
-  .scaleLinear()
-  .domain([0, height])
-  .range([0, height]);
-
 const treemap = d3
   .treemap()
   .size([height, width])
@@ -66,27 +56,24 @@ const data = {
   ]
 };
 
-const nodes = d3.hierarchy(data).count(function(d) {
+const nodes = d3.hierarchy(data).count(d => {
   return d.value ? 1 : 0;
 });
 
 treemap(nodes);
 
-const chart = d3.select("#chart-section");
+const chart = d3.select("#section-right");
 
 const cells = chart
   .selectAll(".node")
   .data(nodes.descendants())
   .enter()
   .append("article")
-  .attr("class", function(d) {
+  .attr("class", d => {
     return "node level-" + d.depth;
   })
-  .attr("id", function(d) {
+  .attr("id", d => {
     return d.data.value;
-  })
-  .attr("title", function(d) {
-    return d.data.name ? d.data.name : "null";
   });
 
 // list of all json animations
@@ -154,10 +141,10 @@ const aninmationSongwriter = bodymovin.loadAnimation({
   path: "src/data/song-writer_animation.json"
 });
 
-//scroll to button
+// scroll to button
 const scrollToButton = document.getElementsByClassName("btn-scroll")[0];
 const firstHeading = document
-  .getElementById("section-heading-one")
+  .getElementById("heading-one")
   .getBoundingClientRect();
 function scrollToFirstSection() {
   window.scrollTo({ top: firstHeading.top - 100, behavior: "smooth" });
@@ -166,30 +153,30 @@ function scrollToFirstSection() {
 scrollToButton.addEventListener("click", scrollToFirstSection, false);
 
 // expand repertoire section
-const repertoireSection = document.getElementsByClassName("repertoire-info");
+const repertoireSection = document.getElementsByClassName("section-info");
 const textSection = document.getElementsByClassName("repertoire-text")[0];
 
 Object.entries(repertoireSection).map(object => {
-  object[1].addEventListener("click", function() {
+  object[1].addEventListener("click", () => {
     this.classList.toggle("expand");
   });
 });
 
 // show image on click
-const buttons = document.querySelectorAll(".europe, .usa");
-const splitImage = document.querySelector(".publisher-split");
+const buttons = document.querySelectorAll(".btn-first, .btn-second");
+const splitImage = document.querySelector(".image-toggle");
 
 buttons.forEach(function(button, index) {
   button.addEventListener("click", () => {
     if (
-      button.classList.contains("usa") &&
+      button.classList.contains("btn-second") &&
       button.classList.contains("btn-inactive")
     ) {
       buttons[index].classList.toggle("btn-inactive");
       splitImage.src = "src/img/publisher_split_usa.svg";
       button.previousElementSibling.classList.toggle("btn-inactive");
     } else if (
-      button.classList.contains("europe") &&
+      button.classList.contains("btn-first") &&
       button.classList.contains("btn-inactive")
     ) {
       buttons[index].classList.toggle("btn-inactive");
@@ -201,51 +188,48 @@ buttons.forEach(function(button, index) {
 
 // when user scrolls down the page, detect when sections hit the measure point
 const bodyPage = document.getElementsByTagName("body")[0];
-// bodyPage.classList.add("hide");
+
+let measuringPoint = window.innerHeight / 3;
+let positionBody = document.body.getBoundingClientRect();
+
+const positionSectionOne = document
+  .getElementById("heading-one")
+  .getBoundingClientRect();
+const sectionOne = positionSectionOne.top - positionBody.top - measuringPoint;
+
+const positionSectionTwo = document
+  .getElementById("heading-two")
+  .getBoundingClientRect();
+const sectionTwo = positionSectionTwo.top - positionBody.top - measuringPoint;
+
+const positionSectionThree = document
+  .getElementById("heading-three")
+  .getBoundingClientRect();
+const sectionThree =
+  positionSectionThree.top - positionBody.top - measuringPoint;
+
+const positionSectionFour = document
+  .getElementById("heading-four")
+  .getBoundingClientRect();
+const sectionFour = positionSectionFour.top - positionBody.top - measuringPoint;
+
+const positionSectionFive = document
+  .getElementById("heading-five")
+  .getBoundingClientRect();
+const sectionFive = positionSectionFive.top - positionBody.top - measuringPoint;
+
+const positionSectionSix = document
+  .getElementById("heading-six")
+  .getBoundingClientRect();
+const sectionSix = positionSectionSix.top - positionBody.top - measuringPoint;
+
+const positionSectionSeven = document
+  .getElementById("heading-seven")
+  .getBoundingClientRect();
+const sectionSeven =
+  positionSectionSeven.top - positionBody.top - measuringPoint;
 
 bodyPage.onscroll = () => {
-  let measuringPoint = window.innerHeight / 3;
-  let positionBody = document.body.getBoundingClientRect();
-
-  const positionSectionOne = document
-    .getElementById("section-heading-one")
-    .getBoundingClientRect();
-  const sectionOne = positionSectionOne.top - positionBody.top - measuringPoint;
-
-  const positionSectionTwo = document
-    .getElementById("section-heading-two")
-    .getBoundingClientRect();
-  const sectionTwo = positionSectionTwo.top - positionBody.top - measuringPoint;
-
-  const positionSectionThree = document
-    .getElementById("section-heading-three")
-    .getBoundingClientRect();
-  const sectionThree =
-    positionSectionThree.top - positionBody.top - measuringPoint;
-
-  const positionSectionFour = document
-    .getElementById("section-heading-four")
-    .getBoundingClientRect();
-  const sectionFour =
-    positionSectionFour.top - positionBody.top - measuringPoint;
-
-  const positionSectionFive = document
-    .getElementById("section-heading-five")
-    .getBoundingClientRect();
-  const sectionFive =
-    positionSectionFive.top - positionBody.top - measuringPoint;
-
-  const positionSectionSix = document
-    .getElementById("section-heading-six")
-    .getBoundingClientRect();
-  const sectionSix = positionSectionSix.top - positionBody.top - measuringPoint;
-
-  const positionSectionSeven = document
-    .getElementById("section-heading-seven")
-    .getBoundingClientRect();
-  const sectionSeven =
-    positionSectionSeven.top - positionBody.top - measuringPoint;
-
   if (window.pageYOffset < sectionOne) {
     document.getElementById("chart-intro").classList.remove("hide");
   } else if (
