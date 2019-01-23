@@ -142,7 +142,7 @@ main {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
-  padding: 5rem;
+  padding: 2.5rem;
 }
 
 #section-left > header > .logo-repertoire {
@@ -172,7 +172,7 @@ main {
   display: flex;
   flex-direction: column;
   min-height: 80vh;
-  padding: 5rem;
+  padding: 2.5rem;
   width: 100%;
 }
 
@@ -206,7 +206,7 @@ main {
 }
 
 #section-left > article > .section-info.expand {
-  height: 22rem;
+  height: 24rem;
   opacity: 1;
 }
 
@@ -453,13 +453,20 @@ main {
   min-width: 30rem;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (min-width: 1280px) {
   #section-left > header,
   #section-left > article {
-    padding: 2.5rem;
+    padding: 5rem;
   }
 
   #section-left > article > .section-info.expand {
-    height: 17rem;
+    height: 22.5rem;
+  }
+}
+
+@media screen and (min-width: 1720px) {
+  #section-left > header,
+  #section-left > article {
+    padding: 5rem 10rem;
   }
 }
