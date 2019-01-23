@@ -357,11 +357,11 @@ main {
 #record-label {
   background-image: linear-gradient(
     to right bottom,
-    #94baf6,
-    #8bb4f5,
-    #83aff5,
-    #7aa9f4,
-    #71a3f3
+    #a78eff,
+    #ae98ff,
+    #b6a1ff,
+    #bdabff,
+    #c4b4ff
   );
   left: 0%;
 }
@@ -382,11 +382,11 @@ main {
 #performer {
   background-image: linear-gradient(
     to right bottom,
-    #b8d1f9,
-    #afcbf8,
-    #a6c5f8,
-    #9dc0f7,
-    #94baf6
+    #c4b4ff,
+    #ccbdff,
+    #d3c6ff,
+    #dbd0ff,
+    #e2d9ff
   );
   height: 100%;
   width: 100%;
