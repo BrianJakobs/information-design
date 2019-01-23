@@ -113,12 +113,12 @@ const aninmationNidj = bodymovin.loadAnimation({
   path: "src/data/nidj_animation.json"
 });
 
-const aninmationPerformer = bodymovin.loadAnimation({
-  container: document.getElementById("performer"),
+const aninmationLabel = bodymovin.loadAnimation({
+  container: document.getElementById("record-label"),
   renderer: "svg",
   loop: true,
   autoplay: true,
-  path: "src/data/performer_animation.json"
+  path: "src/data/record-label_animation.json"
 });
 
 const aninmationPro = bodymovin.loadAnimation({
@@ -127,6 +127,14 @@ const aninmationPro = bodymovin.loadAnimation({
   loop: true,
   autoplay: true,
   path: "src/data/pro_animation.json"
+});
+
+const aninmationPerformer = bodymovin.loadAnimation({
+  container: document.getElementById("performer"),
+  renderer: "svg",
+  loop: true,
+  autoplay: true,
+  path: "src/data/performer_animation.json"
 });
 
 const aninmationPublisher = bodymovin.loadAnimation({
@@ -238,12 +246,12 @@ bodyPage.onscroll = () => {
     positionSectionSeven.top - positionBody.top - measuringPoint;
 
   if (window.pageYOffset < sectionOne) {
-    document.getElementById("chart-intro-section").classList.remove("hide");
+    document.getElementById("chart-intro").classList.remove("hide");
   } else if (
     window.pageYOffset > sectionOne &&
     window.pageYOffset < sectionTwo
   ) {
-    document.getElementById("chart-intro-section").classList.add("hide");
+    document.getElementById("chart-intro").classList.add("hide");
     document.getElementById("song").classList.remove("hide");
   } else if (
     window.pageYOffset > sectionTwo &&
