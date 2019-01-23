@@ -75,7 +75,6 @@ button {
   font-family: "Muli", sans-serif;
   font-size: 1rem;
   font-weight: bold;
-  margin-right: auto;
   max-height: 4rem;
   opacity: 0.5;
   outline: none;
@@ -90,6 +89,14 @@ button:hover {
   transform: translateY(-0.25rem);
 }
 
+.btn-inactive {
+  opacity: 0.1;
+}
+
+.btn-inactive:hover {
+  opacity: 0.25;
+}
+
 /* main */
 main {
   display: flex;
@@ -97,15 +104,15 @@ main {
   height: 100%;
 }
 
-#repertoire-section,
-#chart-section {
+#section-left,
+#section-right {
   display: block;
   height: 100%;
   position: relative;
   width: 50%;
 }
 
-#repertoire-section > header {
+#section-left > header {
   background-image: url("src/img/repertoire_dots.svg"),
     radial-gradient(
       circle farthest-side at 78% 109%,
@@ -138,16 +145,16 @@ main {
   padding: 5rem;
 }
 
-#repertoire-section > header > .logo-repertoire {
+#section-left > header > .logo-repertoire {
   margin-bottom: auto;
   width: 15rem;
 }
 
-#repertoire-section > header > .intro-heading {
+#section-left > header > .intro-heading {
   color: white;
 }
 
-#repertoire-section > header > .intro-text {
+#section-left > header > .intro-text {
   color: white;
   font-size: 1.35rem;
   font-weight: 500;
@@ -156,11 +163,11 @@ main {
   opacity: 0.5;
 }
 
-#repertoire-section > header > button {
+#section-left > header > button {
   margin-bottom: auto;
 }
 
-#repertoire-section > article {
+#section-left > article {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
@@ -169,11 +176,11 @@ main {
   width: 100%;
 }
 
-#repertoire-section > article > img {
+#section-left > article > img {
   width: 25rem;
 }
 
-#repertoire-section > article > .repertoire-info {
+#section-left > article > .section-info {
   align-items: flex-start;
   background-color: white;
   border-radius: 1rem;
@@ -192,29 +199,29 @@ main {
   width: 100%;
 }
 
-#repertoire-section > article > .repertoire-info:hover {
+#section-left > article > .section-info:hover {
   cursor: pointer;
   opacity: 1;
   transform: translateY(-0.25rem);
 }
 
-#repertoire-section > article > .repertoire-info.expand {
+#section-left > article > .section-info.expand {
   height: 22rem;
   opacity: 1;
 }
 
-#repertoire-section > article > .repertoire-info > img:first-child {
+#section-left > article > .section-info > img:first-child {
   max-width: 10rem;
 }
 
-#repertoire-section > article > .repertoire-info > h4 {
+#section-left > article > .section-info > h4 {
   color: #202163;
   margin-bottom: 0;
   margin: 0.5rem 0;
   text-transform: uppercase;
 }
 
-#repertoire-section > article > .repertoire-info > p {
+#section-left > article > .section-info > p {
   color: #a6a6c1;
   font-size: 1rem;
   margin-top: 1rem;
@@ -222,14 +229,14 @@ main {
 
 /* treemap */
 
-#chart-section {
+#section-right {
   overflow: hidden;
   position: fixed;
   right: 0;
   top: 0;
 }
 
-#chart-intro-section {
+#chart-intro {
   background-image: linear-gradient(
     to right bottom,
     #8ef3ea,
@@ -253,37 +260,42 @@ main {
 .node {
   position: absolute;
   overflow: hidden;
-  opacity: 1;
   transition: 0.8s ease-in-out;
-  top: 0%;
+  top: 0;
   left: 0%;
 }
 
-.label {
-  display: inline;
-  font-family: sans-serif;
-  color: white;
-  position: absolute;
-  padding: 0;
-  margin: 0;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%) translateY(-50%);
-  transition: color 0.4s, opacity 0.8s, filter 0.8s;
-}
-
 .hide {
-  top: -110% !important;
+  top: -100% !important;
   pointer-events: none;
 }
 
 .level-0 {
-  font-size: 15vmin;
   height: 100%;
-  /* left: 0%; */
-  /* top: 0%; */
   width: 100%;
   z-index: 4;
+}
+
+.level-1 {
+  height: 50%;
+  width: 100%;
+  z-index: 3;
+}
+
+.level-2 {
+  height: 100%;
+  width: 50%;
+  z-index: 2;
+}
+
+.level-3 {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.level-4 {
+  z-index: 0;
 }
 
 #song {
@@ -295,14 +307,6 @@ main {
     #98f4ec,
     #8ef3ea
   );
-}
-
-.level-1 {
-  z-index: 3;
-  font-size: 10vmin;
-  /* left: 0%; */
-  height: 50%;
-  width: 100%;
 }
 
 #digital-radio {
@@ -338,14 +342,6 @@ main {
   top: 50%;
 }
 
-.level-2 {
-  z-index: 2;
-  font-size: 5vmin;
-  height: 100%;
-  /* top: 0%; */
-  width: 50%;
-}
-
 #pro {
   background-image: linear-gradient(
     to right bottom,
@@ -368,15 +364,6 @@ main {
     #71a3f3
   );
   left: 0%;
-}
-
-.level-3 {
-  z-index: 1;
-  font-size: 2.5vmin;
-  height: 100%;
-  /* left: 0%; */
-  /* top: 0%; */
-  width: 100%;
 }
 
 #music-publisher {
@@ -405,8 +392,7 @@ main {
   width: 100%;
 }
 
-.performer,
-.overview {
+.performer {
   background-image: radial-gradient(
       circle farthest-side at 78% 109%,
       #35c6e4,
@@ -431,21 +417,12 @@ main {
 
 .performer > h2,
 .performer > h3,
-.performer > p,
-.overview > h2,
-.overview > h3,
-.overview > p {
+.performer > p {
   color: white;
 }
 
-.performer > p,
-.overview > p {
+.performer > p {
   opacity: 0.7;
-}
-
-.level-4 {
-  z-index: 0;
-  font-size: 2.5vmin;
 }
 
 #song-writer {
@@ -476,59 +453,13 @@ main {
   min-width: 30rem;
 }
 
-.song-writer > section > button {
-  margin: 0;
-}
-
-.song-writer > section > .btn-inactive {
-  opacity: 0.1;
-}
-
-.song-writer > section > .btn-inactive:hover {
-  opacity: 0.25;
-}
-
-.overview > section {
-  align-items: flex-start;
-  background-color: white;
-  border-radius: 1rem;
-  box-shadow: 0 9px 35px 9px rgba(32, 33, 99, 0.04);
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 1rem;
-  /* height: 5.25rem; */
-  max-width: 40rem;
-  opacity: 1;
-  overflow: hidden;
-  padding: 1.5rem;
-  transition: 0.25s ease-in-out;
-  width: 100%;
-}
-
-.overview > section > img:first-child {
-  max-width: 10rem;
-}
-
-.overview > section > img:last-child {
-  width: 100%;
-}
-
-.overview > section > h4 {
-  color: #202163;
-  margin-bottom: 0;
-  margin: 0.5rem 0;
-  text-transform: uppercase;
-}
-
 @media screen and (max-width: 1280px) {
-  #repertoire-section > header,
-  #repertoire-section > article {
+  #section-left > header,
+  #section-left > article {
     padding: 2.5rem;
   }
 
-  #repertoire-section > article > .repertoire-info.expand {
+  #section-left > article > .section-info.expand {
     height: 17rem;
   }
 }

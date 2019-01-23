@@ -156,7 +156,7 @@ const repertoireSection = document.getElementsByClassName("section-info");
 const textSection = document.getElementsByClassName("repertoire-text")[0];
 
 Object.entries(repertoireSection).map(object => {
-  object[1].addEventListener("click", () => {
+  object[1].addEventListener("click", function() {
     this.classList.toggle("expand");
   });
 });
