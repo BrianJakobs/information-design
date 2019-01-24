@@ -2,7 +2,7 @@
 	<img src="docs/src/img/rpt-logo-gradient-horizontal.png" width="280" />
 </p>
 <p align="center">
-	<img src="docs/src/img/screenshot-webpage.png" width="1080" />
+	<img src="docs/src/img/screen-repertoire.png" width="1080" />
 	<h5 align="center">INTRO</h5>
 	<p align="center">
 	Repertoire wants to solve some of problems by addressing the
