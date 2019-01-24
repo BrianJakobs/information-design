@@ -11,6 +11,7 @@ const treemap = d3
   .paddingInner(0)
   .round(false);
 
+// stakeholders
 const data = {
   name: "Song",
   value: "song",
@@ -89,6 +90,7 @@ const animations = [
   "song-writer"
 ];
 
+// load animations
 animations.forEach(anim => {
   const animation = document.getElementById(anim);
   const animData = {
@@ -145,12 +147,13 @@ buttons.forEach(function(button, index) {
   });
 });
 
-// when user scrolls down the page, detect when sections hit the measure point
+// measure point window
 const bodyPage = document.getElementsByTagName("body")[0];
 
 let measuringPoint = window.innerHeight / 3;
 let positionBody = document.body.getBoundingClientRect();
 
+// position heading of sections
 const positionSectionOne = document
   .getElementById("heading-one")
   .getBoundingClientRect();
@@ -188,6 +191,7 @@ const positionSectionSeven = document
 const sectionSeven =
   positionSectionSeven.top - positionBody.top - measuringPoint;
 
+// onscroll function to add and remove classes
 bodyPage.onscroll = () => {
   if (window.pageYOffset < sectionOne) {
     document.getElementById("chart-intro").classList.remove("hide");
