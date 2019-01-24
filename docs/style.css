@@ -171,7 +171,7 @@ main {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
+  min-height: 70vh;
   padding: 2.5rem;
   width: 100%;
 }
